@@ -124,7 +124,42 @@ new Date().getMonth()
 We can use semantic ui for icons as follows
 
 ```
-<i class="spinner loading icon" /><
+<i class="spinner loading icon" />
 ```
 
+you can add size by adding 'massive'
+
 ### Refactoring with config object
+
+```
+const seasonConfig = {
+  summer: {
+    text: "Let's hit the beach",
+    iconName: "sun"
+  },
+  winter: {
+    text: "Burr, it is chilly",
+    iconName: "snowflake"
+  }
+};
+```
+
+### adding some CSS
+
+it is a good practice to name a class for your root component div as follows
+
+```
+const SeasonDisplay = props => {
+  const season = getSeason(props.lat, new Date().getMonth());
+  const { text, iconName } = seasonConfig[season];
+
+  return (
+    <div className={`season-display ${season}`}>
+      <i className={`icon-left massive ${iconName} icon`} />
+      <h1>{text}</h1>
+      <i className={`icon-right massive ${iconName} icon`} />
+    </div>
+  );
+};
+
+```
