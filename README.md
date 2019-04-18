@@ -55,5 +55,12 @@ render() {
     return <div>Loading..</div>;
   }
 ```
-another way
+another way is:
+
+### component lifecycle
+`constructor()` first time but data loading it is better to do it in `componentDidMount`.
+
+in the `render()` is only for JSX returning
+
+`componentDidMount()` only one time and for loading data
 
