@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import SeasonDisplay from "./SeasonDisplay";
 
 class App extends React.Component {
-// this is equivalent to constructor
+  // this is equivalent to constructor
   state = { lat: null, errorMessage: "" };
   //only when first loading
   componentDidMount() {
@@ -25,10 +25,14 @@ class App extends React.Component {
     }
 
     if (!this.state.errorMessage && this.state.lat) {
-      return <SeasonDisplay lat = {this.state.lat} />
+      return <SeasonDisplay lat={this.state.lat} />;
     }
 
-    return <div><i class="spinner loading icon" /></div>;
+    return (
+      <div>
+        <i className="spinner loading icon" />
+      </div>
+    );
   }
 }
 
