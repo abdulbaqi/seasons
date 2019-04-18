@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import SeasonDisplay from "./SeasonDisplay";
+import Spinner from "./Spinner";
 
 class App extends React.Component {
   // this is equivalent to constructor
@@ -28,11 +29,7 @@ class App extends React.Component {
       return <SeasonDisplay lat={this.state.lat} />;
     }
 
-    return (
-      <div>
-        <i className="spinner loading icon" />
-      </div>
-    );
+    return <Spinner message="Loading your location.." />;
   }
 }
 

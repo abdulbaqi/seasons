@@ -163,3 +163,20 @@ const SeasonDisplay = props => {
 };
 
 ```
+finally you can spice up the loader using `loader` section of semantic UI
+````
+<div class="ui segment">
+  <div class="ui active dimmer">
+    <div class="ui text loader">Loading</div>
+  </div>
+  <p></p>
+</div>
+````
+
+You can always add a default prop like 
+
+````
+Spinner.defaultProps = {
+    message: 'Loading ..'
+};
+````
