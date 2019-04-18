@@ -6,7 +6,7 @@ class App extends React.Component {
   // automatically created the first time
   constructor(props) {
     super(props);
-    this.state = { lat: null };
+    this.state = { lat: null, errorMessage: "" };
 
     // geolocation function
     window.navigator.geolocation.getCurrentPosition(
@@ -15,20 +15,23 @@ class App extends React.Component {
           lat: position.coords.latitude
         });
       },
-      err => console.log(err)
+      err => {
+        this.setState({ errorMessage: err.message });
+      }
     );
   }
 
   render() {
     // the return
-    return (
-      <div>
-        <p>Your latitude is: {this.state.lat} </p>
-        <p>Hi, winter is coming!</p>
+    if (this.state.errorMessage && !this.state.lat) {
+      return <div>Error: {this.state.errorMessage}</div>;
+    }
 
-        <SeasonDisplay />
-      </div>
-    );
+    if (!this.state.errorMessage && this.state.lat) {
+      return <div>Lat: {this.state.lat}</div>;
+    }
+
+    return <div>Loading..</div>;
   }
 }
 
