@@ -3,18 +3,27 @@ import ReactDOM from "react-dom";
 import SeasonDisplay from "./SeasonDisplay";
 
 class App extends React.Component {
-  render() {
+  // automatically created the first time
+  constructor(props) {
+    super(props);
+    this.state = { lat: null };
 
-    // geolocation function 
+    // geolocation function
     window.navigator.geolocation.getCurrentPosition(
-      position => console.log(position),
+      position => {
+        this.setState({
+          lat: position.coords.latitude
+        });
+      },
       err => console.log(err)
     );
+  }
 
+  render() {
     // the return
     return (
       <div>
-        <p>Your latitude is </p>
+        <p>Your latitude is: {this.state.lat} </p>
         <p>Hi, winter is coming!</p>
 
         <SeasonDisplay />
