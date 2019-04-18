@@ -91,3 +91,32 @@ class App extends React.Component {
 }
 
 ```
+
+### passing state as prop : SeasonDisplay
+
+we need to pass state in the main
+
+```
+ if (!this.state.errorMessage && this.state.lat) {
+      return <SeasonDisplay lat = {this.state.lat} />
+    }
+
+```
+
+and our new component is:
+
+```
+import React from "react";
+
+const SeasonDisplay = (props) => {
+  return <div>You are coming from {props.lat}</div>;
+};
+
+export default SeasonDisplay;
+```
+
+You can get the month name as follow:
+
+```
+new Date().getMonth()
+```
