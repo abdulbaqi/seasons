@@ -120,3 +120,8 @@ You can get the month name as follow:
 ```
 new Date().getMonth()
 ```
+We can use semantic ui for icons as follows
+
+````
+<i class="spinner loading icon" /><
+````
