@@ -15,21 +15,25 @@ class App extends React.Component {
     );
   }
 
-  componentDidUpdate() {
-    console.log("did update..");
-  }
+  bodyContent(){
+    if (this.state.errorMessage && !this.state.lat) {
+        return <div>Error: {this.state.errorMessage}</div>;
+      }
+  
+      if (!this.state.errorMessage && this.state.lat) {
+        return <SeasonDisplay lat={this.state.lat} />;
+      }
+  
+      return <Spinner message="Loading your location.." />;
+    }
+  
 
   render() {
     // the return
-    if (this.state.errorMessage && !this.state.lat) {
-      return <div>Error: {this.state.errorMessage}</div>;
-    }
-
-    if (!this.state.errorMessage && this.state.lat) {
-      return <SeasonDisplay lat={this.state.lat} />;
-    }
-
-    return <Spinner message="Loading your location.." />;
+    return(
+        <div>{this.bodyContent()}</div>
+        
+    )
   }
 }
 
