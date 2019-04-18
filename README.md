@@ -1,10 +1,8 @@
 This project follows along the Udemy tutorial by Stephen Grider.
 
-Following are some personal notes I took along following the tutorial. Use whichever suits you.
+Following are some personal notes I took along walking through the tutorial. Use whichever suits you.
 
-After creating the scaffolding:
-
-- We have loaded Semantic UI CSS
+After creating the scaffolding We are using Semantic UI CSS
 
 ## Geolocation API
 
