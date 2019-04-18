@@ -3,24 +3,14 @@ import ReactDOM from "react-dom";
 import SeasonDisplay from "./SeasonDisplay";
 
 class App extends React.Component {
-  // automatically created the first time
-  constructor(props) {
-    super(props);
-    this.state = { lat: null, errorMessage: "" };
-  }
-
+// this is equivalent to constructor
+  state = { lat: null, errorMessage: "" };
   //only when first loading
   componentDidMount() {
     // geolocation function
     window.navigator.geolocation.getCurrentPosition(
-      position => {
-        this.setState({
-          lat: position.coords.latitude
-        });
-      },
-      err => {
-        this.setState({ errorMessage: err.message });
-      }
+      position => this.setState({ lat: position.coords.latitude }),
+      err => this.setState({ errorMessage: err.message })
     );
   }
 

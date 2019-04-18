@@ -55,12 +55,39 @@ render() {
     return <div>Loading..</div>;
   }
 ```
+
 another way is:
 
 ### component lifecycle
+
 `constructor()` first time but data loading it is better to do it in `componentDidMount`.
 
 in the `render()` is only for JSX returning
 
 `componentDidMount()` only one time and for loading data
 
+### no need for constructor in the following case
+
+Babel can take the first line like
+
+```
+ class App extends React.Component{
+      state = {lat:null}
+
+}
+```
+
+and create the constructor for you, you do not need to write contructor and is same as
+
+```
+class App extends React.Component {
+  constructor(...args) {
+    super(...args);
+
+    _defineProperty(this, "state", {
+      lat: null
+    });
+  }
+}
+
+```
